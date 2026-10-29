@@ -1,0 +1,12 @@
+import Master
+import requests
+
+class Integration():
+    def getData(id: number):
+        return Master.players[id].data
+    
+    def location(self):
+        location = requests.get(f"http://ip-api.com/{self.ip}").json()
+        return  f"{location.get("lat")}, {location.get(lon)}"
+
+Integration = Integration()
