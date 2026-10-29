@@ -7,6 +7,6 @@ class Integration():
     
     def location(self):
         location = requests.get(f"http://ip-api.com/{self.ip}").json()
-        return  f"{location.get("lat")}, {location.get(lon)}"
+        return  f"{location.get("lat")}, {location.get("lon")}"
 
 Integration = Integration()
