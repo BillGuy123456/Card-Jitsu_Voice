@@ -8,8 +8,13 @@ from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
 from ask_sdk_core.handler_input import HandlerInput
+from ask_sdk_model.interfaces.alexa.apl import RenderDocumentDirective
 
+DOCUMENT_ID = "Start"
 
+DOCUMENT_TOKEN = "documentToken"
+
+DATASOURCE = open("https://github.com/BillGuy123456/Card-Jitsu_Voice/blob/main/Card-Jitsu%20Voice/Launch.json r").read()
 
 class PlayerData():
     DoB: str
@@ -34,8 +39,16 @@ class ConnectionExceptionHandler(AbstractExceptionHandler):
 class LaunchRequestHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_request_type("LaunchRequest")(handler_input)
+        
+    def supports_apl(self, handler_input):
+        return get_supported_interfaces(handler_input).alexa_presentation_apl != None
 
     def handle(self, handler_input):
+        if supports_apl():
+            return handler_input.response_builder.add_directive(RenderDocumentDirective(token=DOCUMENT_TOKEN, document={
+                "type":"Link",
+                "src":f"doc://alexa/apl/documents/{DOCUMENT_ID}"
+            }, datasources=DATASOURCE)).speak(What would yoy like to play?")
         return handler_input.response_builder.speak("Sorry, this skill is a work in progress. This skill will fully release on October 2, 2027.").response
         self.close()
 
