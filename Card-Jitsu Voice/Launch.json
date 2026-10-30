@@ -1,0 +1,39 @@
+{
+    "type": "Alexa.Presentation.APL.RenderDocument",
+    "token": "documentToken",
+    "document": {
+        "src": "doc://alexa/apl/documents/Start",
+        "type": "Link"
+    },
+    "datasources": {
+        "imageListData": {
+            "type": "object",
+            "objectId": "imageListSample",
+            "backgroundImage": {
+                "contentDescription": null,
+                "smallSourceUrl": null,
+                "largeSourceUrl": null,
+                "sources": [
+                    {
+                        "url": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/gridlist/GridListBackground_Dark.png",
+                        "size": "large"
+                    }
+                ]
+            },
+            "title": "Card-Jitsu Voice",
+            "listItems": [
+                {
+                    "primaryText": "Singleplayer"
+                },
+                {
+                    "primaryText": "Multiplayer"
+                },
+                {
+                    "primaryText": "World (soon!)"
+                }
+            ],
+            "logoUrl": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/logo/logo-modern-botanical-white.png",
+            "hintText": "Try, \"Alexa, select number 1\""
+        }
+    }
+}
