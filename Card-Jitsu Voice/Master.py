@@ -48,9 +48,10 @@ class LaunchRequestHandler(AbstractRequestHandler):
             return handler_input.response_builder.add_directive(RenderDocumentDirective(token=DOCUMENT_TOKEN, document={
                 "type":"Link",
                 "src":f"doc://alexa/apl/documents/{DOCUMENT_ID}"
-            }, datasources=DATASOURCE)).speak(What would yoy like to play?")
-        return handler_input.response_builder.speak("Sorry, this skill is a work in progress. This skill will fully release on October 2, 2027.").response
-        self.close()
+            }, datasources=DATASOURCE)).speak(What would you like to play?")
+        else:
+            return handler_input.response_builder.speak("Sorry, this skill is a work in progress. This skill will fully release on October 2, 2027.").response
+            self.close()
 
 class GameCodeExceptionHandler(AbstractExceptionHandler):
     def can_handle(self, handler_input):
